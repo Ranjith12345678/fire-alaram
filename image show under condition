@@ -1,0 +1,7 @@
+<apex:outputPanel rendered = "{!account.Rating =='Hot'}" >
+   <apex:image value="{!$Resource.image1}" width="100" height="100"/>
+</apex:outputPanel>
+
+<apex:outputPanel rendered = "{!account.Rating =='Warm'}" >
+   <apex:image value="{!$Resource.image2}" width="100" height="100"/>
+</apex:outputPanel>
