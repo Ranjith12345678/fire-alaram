@@ -1,0 +1,694 @@
+<apex:component access="global"  allowDML="true">
+   <apex:attribute name="Firealarm" type="fax__Visit__c" description="job Object" required="required" /> 
+     <head>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>  
+      <style>
+          div.table {
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+}
+      </style>
+
+    </head>
+   
+      <div style="font-family: sans-serif; 
+      ">
+     <tr style="color:#1d4971">
+            <td rowspan="4" style="padding-Right:16em;" align="Left" >  <img width="130" height="70" src="{!$resource.RecallLogo}"/> </td>
+         <!--   <td style="padding-left:1em;" ><img  src="{!$resource.Recalladdress}"/>-->
+          <td rowspan="4" style="padding-left:1em;padding: 10px 50px 30px 0;"></td>
+       <td rowspan="4" style="padding-left:1em;color:white"></td>
+      <!--  <td rowspan="5" style="padding-right:5em;" ><img width="180" height="150" src="{!$resource.Recalladdress}"/></td>-->
+             <td rowspan="4" style="padding-right:5em;padding-left:0.5em;" ><img width="163" height="150" src="{!$resource.Recalladdress}"/>  </td>
+        </tr>
+         
+          <table width="100%" style="border: 1px solid black;
+  border-collapse: collapse;">
+              <tr>
+        <td Width="10%" style="border: 1px solid black;font-size:14px;
+  border-collapse: collapse;text-align:Center;background:#234b83;color:white;"><B>FIRE ALARM &amp; EMERGENCY LIGHTING CERTIFICATE OF INSPECTION</B></td>
+                 
+       </tr>   
+         </table>
+        <table width="100%" style="border: 1px solid black;
+  border-collapse: collapse;">
+            <tr>
+        <td Width="30%" style="border: 1px solid black;
+  border-collapse: collapse;font-size:12px"><B>Customer</B> </td>
+          <td Width="40%" style="border: 1px solid black;
+  border-collapse: collapse;font-size:12px">  {!Firealarm.fax__Customer__c}  </td>
+                  <td Width="30%" colspan="2" style="border: 1px solid black;
+  border-collapse: collapse;font-size:12px;text-align:Center;color:red">  <B> Certificate </B> <br/>
+<B>{!Firealarm.Name}</B></td>
+       </tr> 
+
+            
+         </table>    
+          <table width="100%" style="border: 1px solid black;
+  border-collapse: collapse;">
+  <tr>
+       <td Width="30%" style="border: 1px solid black;border-bottom:none;
+  border-collapse: collapse;font-size:12px;padding-top:10px;"><B>Site Address</B> </td>
+          <td Width="40%" style="border: 1px solid black;border-bottom:none;
+  border-collapse: collapse;font-size:12px"> {!Firealarm.fax__Site__r.shippingStreet} <br/>
+                   {!Firealarm.fax__Site__r.shippingCity} 
+                   
+                    </td>
+                  <td colspan="2" Width="30%"  border="1" style="border: 1px solid black;
+  border-collapse: collapse;  background-color:#d3d3d3;font-size:12px;text-align:Center;"><B>Battery Testing </B>
+  </td>
+       </tr>
+      
+  
+ <tr>
+       <td Width="30%" style="border-left: 1px solid black;border-right: 1px solid black;
+  border-collapse: collapse;font-size:12px;"> </td>
+          <td Width="40%" style="border-right: 1px solid black;
+                                 border-collapse: collapse;font-size:12px">{!Firealarm.fax__Site__r.shippingState}<br/> {!Firealarm.fax__Site__r.shippingCountry }<br/>{!Firealarm.fax__Site__r.shippingPostalCode}
+                     </td>
+                  <td Width="15%"  border="1" style="border: 1px solid black;
+  border-collapse: collapse;  font-size:12px;"><B>Battery Quiescent Load </B>
+  </td>
+  <td Width="15%"  border="1" style="border: 1px solid black;
+  border-collapse: collapse; font-size:12px;"> {!Firealarm.Battery_Quiescent_Load__c}
+  </td>
+       </tr>
+     
+     
+  
+  </table>
+   <table width="100%" style="border: 1px solid black;
+  border-collapse: collapse;">
+  <tr>
+       <td Width="30%" style="border: 1px solid black;
+  border-collapse: collapse;font-size:12px;"><B>Contact Number</B></td>
+          <td Width="15%" style="border: 1px solid black;
+  border-collapse: collapse;font-size:12px"> {!Firealarm.fax__Contact__r.Phone}</td>
+  <td Width="11%" style="border: 1px solid black;
+  border-collapse: collapse;font-size:12px;">  <B>Post Code</B>  </td>
+  <td Width="14%" style="border: 1px solid black;
+  border-collapse: collapse;text-align:left;font-size:12px">{!Firealarm.fax__Site_Postal_code__c}  </td>
+  
+                  <td colspan="2" Width="15%"  border="1" style="border: 1px solid black;
+  border-collapse: collapse; font-size:12px;"><B>Battery Alarm Load </B></td>
+  <td colspan="2" Width="15%"  border="1" style="border: 1px solid black;
+  border-collapse: collapse;font-size:12px "> {!Firealarm.Battery_Alarm_Load__c}  </td>
+       </tr>
+       
+       
+       
+       
+  </table>
+   <table width="100%" style="border: 1px solid black;
+  border-collapse: collapse;">
+  <tr>
+       <td Width="30%" style="border: 1px solid black;
+  border-collapse: collapse;font-size:12px;"><B>Contact Name </B></td>
+          <td Width="15%" style="border: 1px solid black;
+  border-collapse: collapse;font-size:12px">{!Firealarm.fax__Contact__r.Name}  </td>
+  <td Width="11%" style="border: 1px solid black;
+  border-collapse: collapse;font-size:12px;">  <B>Contract Number </B> </td>
+  <td Width="14%" style="border: 1px solid black;
+  border-collapse: collapse;font-size:12px;"> {!Firealarm.fax__Service_Term__r.name} </td>
+  
+                  <td colspan="2" Width="15%"  border="1" style="border: 1px solid black;
+                                                                 border-collapse: collapse; font-size:12px;"><B>Battery Charge Voltage</B> </td>
+  <td colspan="2" Width="15%"  border="1" style="border: 1px solid black;
+  border-collapse: collapse;text-align:left;font-size:12px "> {!Firealarm.Battery_Charge_Voltage__c}  </td>
+       </tr>
+       
+       
+  </table>
+         <table width="100%" style="border: 1px solid black;
+  border-collapse: collapse;">
+  <tr>
+  <td Width="60%" style="border: 1px solid black;
+                         border-collapse: collapse;font-size:12px;"><B>Routine maintenance in accordance with BS5833 Pt 1 (Non-Domestic)</B> </td>
+  <td Width="10%" style="border: 1px solid black;
+  border-collapse: collapse;font-size:12px"> {!Firealarm.Routine_maintenance_in_accordance_with_B__c} </td>
+      <td colspan="2" Width="15%"  border="1" style="border: 1px solid black;
+  border-collapse: collapse; font-size:12px;"><B>Battery SLA Voltage </B></td>
+  <td colspan="2" Width="15%"  border="1" style="border: 1px solid black;
+  border-collapse: collapse;text-align:left; font-size:12px">{!Firealarm.Battery_SLA_Voltage__c} </td>
+  </tr>
+  
+  
+  
+  </table>
+   <table width="100%" style="border: 1px solid black;
+  border-collapse: collapse;">
+  <tr>
+  <td Width="60%" style="border: 1px solid black;
+  border-collapse: collapse;font-size:12px;text-align:center;"><B>BS5839 Pt 6 (Domestic / HMO)</B> </td>
+  <td Width="10%" style="border: 1px solid black;
+  border-collapse: collapse;font-size:12px"> {!Firealarm.BS5839_Pt_6_Domestic_HMO__c} </td>
+      <td colspan="2" Width="15%"  border="1" style="border: 1px solid black;
+  border-collapse: collapse; font-size:12px;"><B>Battery Ah </B></td>
+  <td colspan="2" Width="15%"  border="1" style="border: 1px solid black;
+  border-collapse: collapse;text-align:left; font-size:12px;">{!Firealarm.Battery_Ah__c}   </td>
+  </tr>
+  
+  
+  </table>
+  
+  
+  
+  <table width="100%" style="border: 1px solid black;
+  border-collapse: collapse;">
+  <tr>
+   <td Width="70%" style="border: 1px solid black;
+  border-collapse: collapse; text-align:Center; font-size:12px; "> 
+ </td>
+   
+  <td colspan="2" Width="15%"  border="1" style="border: 1px solid black;
+                                                 border-collapse: collapse; font-size:12px;"><B>Battery Date</B> </td>
+  <td colspan="2" Width="15%"  border="1" style="border: 1px solid black;
+  border-collapse: collapse;text-align:left;font-size:12px "><apex:outputText value="{0,date,dd'/'MM'/'yyyy}"><apex:param value="{!Firealarm.Battery_Date__c}"/></apex:outputText>   </td>
+  </tr>
+  
+  
+
+     </table>
+  <table width="100%" >
+                
+     <tr>
+            <td  style="vertical-align: top;" width="70%">
+  
+ <table width="100%" style="border: 1px solid black;
+  border-collapse: collapse;">
+  <tr>
+   <th Width="44.5%" style="border: 1px solid black;
+  border-collapse: collapse; font-size:12px;background-color:#d3d3d3;"><B>Fire System Inspection and Service Checks</B>
+ </th>
+   <th Width="12%" style="border: 1px solid black;
+  border-collapse: collapse;background-color:#d3d3d3;font-size:12px"> <B>YES </B></th>
+   <th Width="12%" style="border: 1px solid black;
+  border-collapse: collapse; background-color:#d3d3d3;font-size:12px"><B> NO</B> </th>
+   <th Width="11%" style="border: 1px solid black;
+                          border-collapse: collapse;background-color:#d3d3d3;font-size:12px"><B> N/A </B></th>
+      </tr>
+     
+  
+ <apex:repeat value="{!Firealarm.Inspection_items__r }" var="Inspection">
+          
+    <tr style="{!if(Inspection.Firealarm__c != false,'display:none','')};page-break-inside:avoid;">
+      <td style="border: 1px solid black;font-size:12px;padding:0px;"> {!Inspection.Inspection__c} </td>
+        <td style="border: 1px solid black;font-size:12px;padding:0px;"> <apex:outputField value="{!Inspection.Yes__c}"/></td>
+        <td    style="border: 1px solid black;font-size:12px;padding:0px;"><apex:outputField value="{!Inspection.No__c}"/> </td>
+        <td    style="border: 1px solid black;font-size:12px;padding:0px;"><apex:outputField value="{!Inspection.N_A__c}"/> </td>
+       </tr>
+     </apex:repeat>
+     
+</table>
+</td>
+  <td width="100%" style="vertical-align: top;" >
+                
+<table width="100%" style=";border-collapse:collapse;font-size:10px">
+    <tr>
+  <th  Width="20%"  border="1" style="border: 1px solid black;
+  border-collapse: collapse;  text-align:Center;font-size:12px;background-color:#d3d3d3; "><B>Type</B>
+ </th>
+  <th  Width="5%"  border="1" style="border: 1px solid black;
+  border-collapse: collapse;font-size:12px; background-color:#d3d3d3; "> <B> Fire System </B></th>
+  <th  Width="10%"  border="1" style="border: 1px solid black;
+  border-collapse: collapse; font-size:12px;background-color:#d3d3d3; "><B> Emergency
+Lights </B></th>
+        </tr>
+     <tr style="text-align:center;">
+                <td Width="30%" style="padding:5px 0px;border: 1px solid black;font-size:12px" ><B>  Quarterly Inspection &amp;Test</B> </td>
+         <td Width="10%" style="padding:5px 0px;border: 1px solid black;font-size:12px" ><apex:outputField value="{!Firealarm.Quarterly_Inspection_Test__c}"/></td>
+         <td Width="10%" style="padding:5px 0px;border: 1px solid black;font-size:12px" ></td>
+            </tr>
+     <tr style="text-align:center;">
+                <td Width="30%" style="padding:5px 0px;border: 1px solid black;font-size:12px" > <B> Six Monthly Inspection &amp;Test </B></td>
+         <td Width="10%" style="padding:5px 0px;border: 1px solid black;font-size:12px" ><apex:outputField value="{!Firealarm.Six_Month_Inspection_test__c}"/></td>
+                 <td Width="10%" style="padding:5px 0px;border: 1px solid black;font-size:12px" ></td>
+            </tr>
+     <tr style="text-align:center;">
+                <td Width="30%" style="padding:5px 0px;border: 1px solid black;font-size:12px" > <B>Annual Inspection &amp;Test</B> </td>
+         <td Width="10%" style="padding:5px 0px;border: 1px solid black;font-size:12px" ><apex:outputField value="{!Firealarm.Annual_Inspection_test__c}"/></td>
+                 <td Width="10%" style="padding:5px 0px;border: 1px solid black;font-size:12px" ></td>
+            </tr>
+     <tr style="text-align:center;">
+                <td Width="30%" style="padding:5px 0px;border: 1px solid black;font-size:12px" > <B> Date of Last Inspection</B> </td>
+                 <td Width="10%" style="padding:5px 0px;border: 1px solid black;font-size:12px" ><apex:outputText value="{0,date,dd'/'MM'/'yyyy}"><apex:param value="{!Firealarm.Date_of_Last_Inspection__c}"/></apex:outputText> </td>
+                 <td Width="10%" style="padding:5px 0px;border: 1px solid black;font-size:12px" ><apex:outputText value="{0,date,dd'/'MM'/'yyyy}"><apex:param value="{!Firealarm.Date_of_Last_Inspection__c}"/></apex:outputText></td>
+            </tr>
+     <tr style="text-align:center;">
+                <td Width="30%" style="padding:5px 0px;border: 1px solid black;font-size:12px" ><B> Date of Next Inspection </B></td>
+                 <td Width="10%" style="padding:5px 0px;border: 1px solid black;font-size:12px" ><apex:outputText value="{0,date,dd'/'MM'/'yyyy}"><apex:param value="{!Firealarm.Date_of_Next_Inspection__c}"/></apex:outputText></td>
+                 <td Width="10%" style="padding:5px 0px;border: 1px solid black;font-size:12px" ><apex:outputText value="{0,date,dd'/'MM'/'yyyy}"><apex:param value="{!Firealarm.Date_of_Next_Inspection__c}"/></apex:outputText></td>
+            </tr>
+   
+      </table>
+         </td>
+  </tr>
+        
+    
+</table>
+   
+    
+                
+            
+           
+            
+        
+  
+  
+  
+  
+ <!-- <tr>
+   <td style="border: 1px solid black;font-size:12px;">Check the satisfactory operation of all automatic
+detection devices and manual call points as
+applicable; carry out walk test.</td>
+   <td style="border: 1px solid black;font-size:12px;"> </td>
+   <td    style="border: 1px solid black;font-size:12px;"> </td>
+   <td   style="border: 1px solid black;font-size:12px;"> </td>
+   <td    style="border: 1px solid black;font-size:12px;"> Quarterly Inspection &amp;Test {!Firealarm.Quarterly_Inspection_Test__c}</td>
+   <td  style="border: 1px solid black;font-size:12px;"> </td>
+   <td     style="border: 1px solid black;font-size:12px;"> </td>
+  
+  </tr>
+  
+  <tr>
+   <td style="border: 1px solid black;font-size:12px;">Check all detector remote indicators for correct
+operation (if applicable).</td>
+   <td style="border: 1px solid black;font-size:12px;"> </td>
+   <td    style="border: 1px solid black;font-size:12px;"> </td>
+   <td   style="border: 1px solid black;font-size:12px;"> </td>
+   <td    style="border: 1px solid black;font-size:12px;"> Six Monthly Inspection
+&amp; Test {!Firealarm.Six_Month_Inspection_test__c}
+</td>
+   <td  style="border: 1px solid black;font-size:12px;"> </td>
+   <td     style="border: 1px solid black;font-size:12px;"> </td>
+  
+  </tr>
+  
+  <tr>
+   <td style="border: 1px solid black;font-size:12px;">Check all CIE equipment stand-by power supplies
+for correct charging rates and backup battey
+capacities are correct for continued service.</td>
+   <td style="border: 1px solid black;font-size:12px;"> </td>
+   <td    style="border: 1px solid black;font-size:12px;"> </td>
+   <td   style="border: 1px solid black;font-size:12px;"> </td>
+   <td    style="border: 1px solid black;font-size:12px;"> Annual Inspection &amp;
+Test {!Firealarm.Annual_Inspection_test__c}
+
+</td>
+   <td  style="border: 1px solid black;font-size:12px;"> </td>
+   <td     style="border: 1px solid black;font-size:12px;"> </td>
+  
+  </tr>
+  
+  <tr>
+   <td style="border: 1px solid black;font-size:12px;">Check age and condition of control panel batteries
+and replaced if required.</td>
+   <td style="border: 1px solid black;font-size:12px;"> </td>
+   <td    style="border: 1px solid black;font-size:12px;"> </td>
+   <td   style="border: 1px solid black;font-size:12px;"> </td>
+   <td    style="border: 1px solid black;font-size:12px;"> Date of Last Inspection {!Firealarm.Date_of_Last_Inspection__c}
+
+</td>
+   <td  style="border: 1px solid black;font-size:12px;"> </td>
+   <td     style="border: 1px solid black;font-size:12px;"> </td>
+  
+  </tr>
+  
+  <tr>
+   <td style="border: 1px solid black;font-size:12px;">Inspect location, condition of all automatic
+detection equipmentand manual call points. Clean
+and replace as necessary.</td>
+   <td style="border: 1px solid black;font-size:12px;"> </td>
+   <td    style="border: 1px solid black;font-size:12px;"> </td>
+   <td   style="border: 1px solid black;font-size:12px;"> </td>
+   <td    style="border: 1px solid black;font-size:12px;"> Date of Next Inspection {!Firealarm.Date_of_Next_Inspection__c}
+
+</td>
+   <td  style="border: 1px solid black;font-size:12px;"> </td>
+   <td     style="border: 1px solid black;font-size:12px;"> </td>
+  
+  </tr>
+  <tr>
+   <td style="border: 1px solid black;font-size:12px;">Check the fire alarm controls and functions of the
+CIE equipment for correct operation including fire
+activation and fault monitoring.
+.</td>
+   <td style="border: 1px solid black;font-size:12px;"> </td>
+   <td    style="border: 1px solid black;font-size:12px;"> </td>
+   <td   style="border: 1px solid black;font-size:12px;"> </td>
+   <td    style="border: none;border-bottom: 1px solid black;font-size:12px;"> 
+
+</td>
+   <td  style="border: none;border-bottom: 1px solid black;font-size:12px;"> </td>
+   <td     style="border: 1px solid black;border-left: none;border-bottom: 1px solid black;font-size:12px;"> </td>
+  
+  </tr>
+  
+  <tr>
+   <td style="border: 1px solid black;font-size:12px;">Check remote signalling including all remote
+signalling to ARC, or speech dialler channels.
+.</td>
+   <td style="border: 1px solid black;font-size:12px;"> </td>
+   <td    style="border: 1px solid black;font-size:12px;"> </td>
+   <td   style="border: 1px solid black;font-size:12px;"> </td>
+   <td    style="border: none;font-size:12px;background-color:#d3d3d3;"> 
+
+</td>
+   <td  style="border: none;font-size:12px;background-color:#d3d3d3;"> </td>
+   <td     style="border: 1px solid black;border-left: none;border-bottom: none;font-size:12px;background-color:#d3d3d3;"> </td>
+  
+  </tr>
+  
+  <tr>
+   <td style="border: 1px solid black;font-size:12px;">Check operation of audible and visual warning
+devices (sounders and beacons) and log noise levels
+as required..
+.</td>
+   <td style="border: 1px solid black;font-size:12px;"> </td>
+   <td    style="border: 1px solid black;font-size:12px;"> </td>
+   <td   style="border: 1px solid black;font-size:12px;"> </td>
+    <td    style="border: none;font-size:12px;background-color:#d3d3d3;"> 
+
+</td>
+   <td  style="border: none;font-size:12px;background-color:#d3d3d3;"> </td>
+   <td     style="border: 1px solid black;border-top: none;border-left: none;border-bottom: none;font-size:12px;background-color:#d3d3d3;"> </td>
+  </tr>
+  
+  <tr>
+   <td style="border: 1px solid black;font-size:12px;">Check the cause and effect programming as being
+correct by activating at least one cause and
+observing the operation of effects 
+.</td>
+   <td style="border: 1px solid black;font-size:12px;"> </td>
+   <td    style="border: 1px solid black;font-size:12px;"> </td>
+   <td   style="border: 1px solid black;font-size:12px;"> </td>
+    <td    style="border: none;font-size:12px;background-color:#d3d3d3;"> 
+
+</td>
+   <td  style="border: none;font-size:12px;background-color:#d3d3d3;"> </td>
+   <td     style="border: 1px solid black;border-left: none;border-top: none;border-bottom: none;font-size:12px;background-color:#d3d3d3;"> </td>
+  </tr>
+  
+   <tr>
+   <td style="border: 1px solid black;font-size:12px;">Check system documents and records are present
+and up to date, including logbook and zone plan.
+</td>
+   <td style="border: 1px solid black;font-size:12px;"> </td>
+   <td    style="border: 1px solid black;font-size:12px;"> </td>
+   <td   style="border: 1px solid black;font-size:12px;"> </td>
+   <td    style="border: none;font-size:12px;background-color:#d3d3d3;"> 
+
+</td>
+   <td  style="border: none;font-size:12px;background-color:#d3d3d3;"> </td>
+   <td     style="border: 1px solid black;border-top: none;border-left: none;border-bottom: none;font-size:12px;background-color:#d3d3d3;"> </td>
+  </tr>
+  
+  <tr>
+   <td style="border: 1px solid black;font-size:12px;">Check the fire alarm system is fully functional and
+report any observations/defects or areas for future
+attention or alterations to the premises
+management.
+</td>
+   <td style="border: 1px solid black;font-size:12px;"> </td>
+   <td    style="border: 1px solid black;font-size:12px;"> </td>
+   <td   style="border: 1px solid black;font-size:12px;"> </td>
+   <td    style="border: none;border-bottom: 1px solid black;font-size:12px;background-color:#d3d3d3;"> 
+
+</td>
+   <td  style="border: none;border-bottom: 1px solid black;font-size:12px;background-color:#d3d3d3;"> </td>
+   <td     style="border: 1px solid black;border-left: none;border-top: none;border-bottom: 1px solid black;font-size:12px;background-color:#d3d3d3;"> </td>
+  </tr>-->
+ 
+  
+  
+ <br/>
+ 
+ <br/>
+  <table width="100%" >
+                
+     <tr>
+            <td  style="vertical-align: top;" width="45%">
+ 
+  <table width="100%" style="border: 1px solid black;
+  border-collapse: collapse;">
+  <tr>
+   <td Width="50%" style="border: 1px solid black;
+  border-collapse: collapse; background-color:#d3d3d3; text-align:Center;font-size:12px; "><B>Emergency Lighting Inspection and Service Checks</B>
+ </td>
+   <td Width="10%" style="border: 1px solid black;
+  border-collapse: collapse; background-color:#d3d3d3; text-align:Center;font-size:12px;"><B> Yes</B> </td>
+   <td Width="10%" style="border: 1px solid black;
+  border-collapse: collapse; background-color:#d3d3d3; text-align:Center;font-size:12px;"><B> No </B></td>
+   <td Width="10%" style="border: 1px solid black;
+  border-collapse: collapse; background-color:#d3d3d3;text-align:Center;font-size:12px;"><B> N/A </B></td>
+      
+      </tr> 
+       
+       <apex:repeat value="{!Firealarm.Inspection_items__r}" var="Part" >
+         
+        <tr style="{!if(Part.Firealarm__c != true,'display:none','')}"> 
+           
+<td Width="50%" style="border: 1px solid black;
+                       border-collapse: collapse;  text-align:left;font-size:12px; "><apex:outputText value="{!Part.Inspection__c }"/>
+ </td>
+   <td Width="10%" style="border: 1px solid black;
+                          border-collapse: collapse; text-align:left;font-size:12px;"><apex:outputField value="{!Part.Yes__c}"/> </td>
+   <td Width="10%" style="border: 1px solid black;
+                          border-collapse: collapse;  text-align:center;font-size:12px;"><apex:outputField value="{!Part.No__c}"/>  </td>
+   <td Width="10%" style="border: 1px solid black;
+                          border-collapse: collapse; text-align:Center;font-size:12px;"><apex:outputField value="{!Part.N_A__c}"/> </td>   
+         
+    </tr>
+        
+           </apex:repeat>
+      
+       
+  <!-- <td Width="50%" style="border: 1px solid black;
+                          border-collapse: collapse;  text-align:left;font-size:12px; ">Adequate illumination is provided under test<br/>
+       conditions, for safe movement on escape routes<br/>
+and open areas.
+ </td>
+   <td Width="10%" style="border: 1px solid black;
+  border-collapse: collapse;  text-align:left;font-size:12px;">  </td>
+   <td Width="10%" style="border: 1px solid black;
+  border-collapse: collapse;  text-align:center;font-size:12px;">  </td>
+   <td Width="10%" style="border: 1px solid black;
+  border-collapse: collapse; text-align:Center;font-size:12px;">  </td>
+      
+      </tr>
+       <tr>
+   <td Width="50%" style="border: 1px solid black;
+                          border-collapse: collapse;  text-align:left;font-size:12px; ">A sufficient number of suitable located test facilities<br/>
+are provided.
+ </td>
+   <td Width="10%" style="border: 1px solid black;
+  border-collapse: collapse;  text-align:left;font-size:12px;">  </td>
+   <td Width="10%" style="border: 1px solid black;
+  border-collapse: collapse;  text-align:center;font-size:12px;">  </td>
+   <td Width="10%" style="border: 1px solid black;
+  border-collapse: collapse; text-align:Center;font-size:12px;">  </td>
+      
+      
+      </tr>
+       <tr>
+   <td Width="50%" style="border: 1px solid black;
+                          border-collapse: collapse;  text-align:left;font-size:12px; ">Test records in the logbook complete and<br/>
+satisfactory.
+ </td>
+   <td Width="10%" style="border: 1px solid black;
+  border-collapse: collapse;  text-align:left;font-size:12px;">  </td>
+   <td Width="10%" style="border: 1px solid black;
+  border-collapse: collapse;  text-align:center;font-size:12px;">  </td>
+   <td Width="10%" style="border: 1px solid black;
+  border-collapse: collapse; text-align:Center;font-size:12px;">  </td>
+      
+      
+      </tr>
+       <tr>
+   <td Width="50%" style="border: 1px solid black;
+                          border-collapse: collapse;  text-align:left;font-size:12px; ">Luminaires tested and found to operate for the full<br/>
+rated duration.
+
+ </td>
+   <td Width="10%" style="border: 1px solid black;
+  border-collapse: collapse;  text-align:left;font-size:12px;">  </td>
+   <td Width="10%" style="border: 1px solid black;
+  border-collapse: collapse;  text-align:center;font-size:12px;">  </td>
+   <td Width="10%" style="border: 1px solid black;
+  border-collapse: collapse; text-align:Center;font-size:12px;">  </td>
+      
+      
+      </tr>
+       <tr>
+    <td Width="50%" style="border: 1px solid black;
+                           border-collapse: collapse;  text-align:left;font-size:12px; ">After test, each luminaire charging indicator<br/>
+operates correctly.
+
+ </td>
+   <td Width="10%" style="border: 1px solid black;
+  border-collapse: collapse;  text-align:left;font-size:12px;">  </td>
+   <td Width="10%" style="border: 1px solid black;
+  border-collapse: collapse;  text-align:center;font-size:12px;">  </td>
+   <td Width="10%" style="border: 1px solid black;
+  border-collapse: collapse; text-align:Center;font-size:12px;">  </td>-->
+      
+      
+     
+      
+        </table>
+         </td>
+
+      
+                <td width="20%" style="vertical-align: top;" >
+                
+<table width="100%" style=";border-collapse:collapse;font-size:10px">
+            <tr style="background:#ebebeb;text-align:center;">
+  <td  colspan="2" Width="30%"  border="1" style="border: 1px solid black;
+  border-collapse: collapse;  text-align:Center;background-color:#d3d3d3;font-size:12px; "> <B>Materials Used</B>
+ </td>
+  
+  </tr>
+  <tr style="text-align:center;">
+  <td   Width="40%"  border="1" style="border: 1px solid black;
+  border-collapse: collapse;  text-align:Center;background-color:#d3d3d3;font-size:12px; "> <B>Description</B>
+ </td>
+       <td   Width="40%"  border="1" style="border: 1px solid black;
+  border-collapse: collapse;  text-align:Center;background-color:#d3d3d3;font-size:12px; "> <B>Qty</B>
+ </td>
+  
+  </tr>
+   <apex:repeat value="{!Firealarm.fax__Parts_Used__r}" var="parts" >
+             <tr style="text-align:center;">
+                <td  style="padding:5px 0px;border: 1px solid black;font-size:12px;" >{!parts.fax__Product__r.name} </td>
+                <td  style="padding:5px 0px;border: 1px solid black;font-size:12px;" >{!parts.fax__Quantity__c}</td>
+            </tr>
+    </apex:repeat>
+                    </table>
+         </td>
+      </tr>
+
+  </table>
+  
+  
+   <table width="100%" style="border: 1px solid black;
+  border-collapse: collapse;">
+  <tr>
+   <th Width="70%" style="border: 1px solid black;border-bottom:none;
+                          border-collapse: collapse; text-align:left;font-size:12px;"><B>Engineer Comments:</B><br/><br/>{!firealarm.fax__Engineer_Completion_Notes__c}
+ </th>
+   
+  <th   Width="15%"  border="1" style="border: 1px solid black;
+  border-collapse: collapse;  text-align:Center; "> 
+ </th>
+ <th   Width="8%"  border="1" style="border: 1px solid black;
+  border-collapse: collapse;  text-align:Center; background-color:#d3d3d3; font-size:12px;"> <B>YES</B>
+ </th>
+  <th  Width="8%"  border="1" style="border: 1px solid black;
+  border-collapse: collapse;  text-align:Center; background-color:#d3d3d3; font-size:12px;"> <B>NO</B>
+ </th>
+  </tr>
+  
+  
+  <tr>
+     <td  Width="70%" style="border: 1px solid black;border-top:none;border-bottom:none;
+  border-collapse: collapse; text-align:Center;font-size:12px;">
+ </td>
+   
+  <td   Width="15%"  border="1" style="border: 1px solid black;
+                                       border-collapse: collapse;background-color:#d3d3d3;  font-size:12px; "><B> Job Completed? </B> 
+ </td>
+ <td   Width="8%"  border="1" style="border: 1px solid black;
+                                     border-collapse: collapse;  text-align:Center; font-size:12px;"><apex:outputPanel rendered="{!Firealarm.Job_Completed__c='Yes'}"><apex:outputfield value="{!Firealarm.Job_Completed__c}"></apex:outputfield></apex:outputPanel> 
+ </td>
+  <td   Width="8%"  border="1" style="border: 1px solid black;
+                                      border-collapse: collapse;  text-align:Center;  font-size:12px;"><apex:outputPanel rendered="{!Firealarm.Job_Completed__c='No'}"><apex:outputField value="{!Firealarm.Job_Completed__c}"></apex:outputField></apex:outputPanel>
+ </td>
+  </tr>
+  
+  <tr>
+     <td  Width="70%" style="border: 1px solid black;border-top:none;border-bottom:none;
+  border-collapse: collapse; text-align:Center;font-size:12px;">
+ </td>
+   
+  <td   Width="15%"  border="1" style="border: 1px solid black;
+                                       border-collapse: collapse;background-color:#d3d3d3;  font-size:12px; "><B> Log book Signed? </B>
+ </td>
+ <td   Width="8%"  border="1" style="border: 1px solid black;
+                                     border-collapse: collapse;  text-align:Center;  font-size:12px;"> <apex:outputPanel rendered="{!Firealarm.Log_book_Signed__c='Yes'}"><apex:outputField value="{!Firealarm.Log_book_Signed__c}"></apex:outputField></apex:outputPanel>
+ </td>
+  <td   Width="8%"  border="1" style="border: 1px solid black;
+  border-collapse: collapse;  text-align:Center;  font-size:12px;"><apex:outputPanel rendered="{!Firealarm.Log_book_Signed__c='No'}"><apex:outputfield value="{!Firealarm.Log_book_Signed__c}"></apex:outputfield></apex:outputPanel>
+ </td>
+  </tr>
+  
+   <tr>
+     <td  Width="70%" style="border: 1px solid black;border-top:none;border-bottom:none;
+  border-collapse: collapse; text-align:Center;font-size:12px;">
+ </td>
+   
+  <td   Width="15%"  border="1" style="border: 1px solid black;
+  border-collapse: collapse;background-color:#d3d3d3;  font-size:12px; "> <B>Further action required
+      by client?</B> 
+ </td>
+ <td   Width="8%"  border="1" style="border: 1px solid black;
+  border-collapse: collapse;  text-align:Center;  font-size:12px;"> <apex:outputPanel rendered="{!Firealarm.Further_action_required_by_client__c='Yes'}"><apex:outputfield value="{!Firealarm.Further_action_required_by_client__c}"></apex:outputfield></apex:outputPanel>
+ </td>
+  <td   Width="8%"  border="1" style="border: 1px solid black;
+  border-collapse: collapse;  text-align:Center;  font-size:12px;"><apex:outputPanel rendered="{!Firealarm.Further_action_required_by_client__c='No'}"><apex:outputfield value="{!Firealarm.Further_action_required_by_client__c}"></apex:outputfield></apex:outputPanel>
+ </td>
+  </tr>
+  
+  <tr>
+     <td  Width="70%" style="border: 1px solid black;border-top:none;
+  border-collapse: collapse; text-align:Center;font-size:12px;">
+ </td>
+   
+  <td   Width="15%"  border="1" style="border: 1px solid black;
+  border-collapse: collapse;  font-size:12px;background-color:#d3d3d3; "><B> Further action required
+by company? </B>
+ </td>
+ <td   Width="8%"  border="1" style="border: 1px solid black;
+  border-collapse: collapse;  text-align:Center;  font-size:12px;"> <apex:outputPanel rendered="{!Firealarm.Further_action_required_by_company__c='Yes'}"><apex:outputfield value="{!Firealarm.Further_action_required_by_company__c}"></apex:outputfield></apex:outputPanel>
+ </td>
+  <td   Width="8%"  border="1" style="border: 1px solid black;
+  border-collapse: collapse;  text-align:Center;  font-size:12px;"><apex:outputPanel rendered="{!Firealarm.Further_action_required_by_company__c='No'}"><apex:outputfield value="{!Firealarm.Further_action_required_by_company__c}"></apex:outputfield></apex:outputPanel>
+ </td>
+  </tr>
+  
+  
+  </table>
+  
+  <table width="100%" style="border-left: 1px solid black;border-right: 1px solid black;border-top:1px solid black;border-bottom:none;border-collapse: collapse;">
+
+                <tr>
+        <td Width="10%" style="border-left: 1px solid black;border-right: 1px solid black;border-top:1px solid black;border-bottom:none;font-size:12px;padding-left:10px;
+  border-collapse: collapse;font-size:12px">I/we* being the competent person(s) responsible (as indicated by my/our* signatures below) for the servicing of the fire
+alarm system and emergency lighting system of which are set our below, CERTIFY that the said work for which I/we*
+have been responsible complies to the best of my/our knowledge and belief with recommendations of Clause 45
+BS5839-1/6 and BS5266-1 respectively, except for the variations, if any, stated in this certificate.
+                  </td>
+      </tr>
+         </table>
+         <table width="100%" style="border-left: 1px solid black;border-right: 1px solid black;border-top:1px solid black;border-bottom:none;
+  border-collapse: collapse;">
+      <tr>
+      <td colspan="2" Width="10%" style="border-left: 1px solid black;border-right: 1px solid black;border-top:1px solid white;border-bottom:1px White;font-size:12px;padding-left:10px;
+                                         border-collapse: collapse;font-size:12px"> <br/> &nbsp;<b>Extent of system covered by this certificate</b>: as above. </td></tr>
+              <tr> <td style="border-left :1px solid black;border-right:1px solid white;border-bottom :1px solid White;border-top:1px solid White
+                              ;padding-bottom:2em;font-size:12px;"><br/>&nbsp;&nbsp;&nbsp;&nbsp; Engineer: {!Firealarm.fax__Engineer_Name__c} </td>
+                 <td style="border-left :1px solid white;border-right:1px solid black;border-bottom :1px solid White;border-top:1px solid White
+                            ;padding-bottom:2em;font-size:12px;"> <br/>Customer's Name:{!Firealarm.fax__Customer_Name__c}</td>
+             </tr>
+               <tr>
+                  
+                  <td style="border-left :1px solid black;border-right:1px solid white;border-bottom :1px solid black;border-top:1px solid White
+                            ;padding-bottom:2em;font-size:12px;">&nbsp;&nbsp;&nbsp;&nbsp;Date:<apex:outputText value="{0,date,dd'/'MM'/'yyyy}"><apex:param value="{!Firealarm.Date__c}"/> </apex:outputText> </td>
+                 <td style="border-left :1px solid White;border-right:1px solid black;border-bottom :1px solid black;border-top:1px solid White
+                            ;padding-bottom:2em;font-size:12px;">Customer's Signature:<apex:outputtext value="{!substitute(Firealarm.fax__Customer_Signature__c,"alt=","width=\"100px\" Alt=")}" escape="false"/></td>
+             </tr>
+         </table>            
+       
+
+    </div>
+</apex:component>
